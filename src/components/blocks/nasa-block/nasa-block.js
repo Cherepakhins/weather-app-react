@@ -8,12 +8,9 @@ class NasaBlock extends React.Component {
         describe: undefined,
         url: undefined,
 }
-
     nasa = fetch(`https://api.nasa.gov/planetary/apod?api_key=9S5gSnfoynIPdjs82VwzDL7G5KlejUhrnjRDKBzq`).then((response) => {
             return response.json()
          }).then((data) => {
-            console.log(data);
-
             this.setState({
                 title: data.title,
                 describe: data.explanation,

@@ -1,13 +1,11 @@
 import React from "react";
-import Info from "./../../header/info/info";
+
 import Form from "./../../header/form/form";
 import Weather from "./../../header/weather/Weather";
 import "./style.css";
 import NasaBlock from "../nasa-block/nasa-block";
 
-
 const apiKey = '31bc9fcdacc37b494ffc295523a5f668';
-
 class Mainblock extends React.Component {
     state = {
         temp: undefined,
@@ -19,9 +17,6 @@ class Mainblock extends React.Component {
         time: undefined,
         error: undefined,
 }
-
-
-
     gettingWeather = async (e) => {
         e.preventDefault();
         let city = e.target.elements.city.value.trim();
@@ -45,10 +40,7 @@ class Mainblock extends React.Component {
             time = hours + ":0" + minutes;
         } else{
             time = hours + ":" + minutes;
-        }
-
-
-        
+        }      
         this.setState({
             temp: Math.round(data.main.temp),
             city: data.name,
@@ -59,18 +51,13 @@ class Mainblock extends React.Component {
             time: time,
             error: "",
         });
-
-
-        }
-
-        
-    }
-
+    }      
+}
   render() {
     return (
       <div>
         <header className="header">
-            <Info />
+
             <Form weatherMethod={this.gettingWeather}/>
         </header>
         <main className="main">
